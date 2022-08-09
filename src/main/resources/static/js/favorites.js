@@ -10,7 +10,7 @@ async function loadFavorites() {
 
     const favorCtr = document.getElementById('favorCtr');
 
-    fetch(`http://localhost:8080/api/users/${id}/favorites`, {
+    fetch(`https://sell8buy.herokuapp.com/api/users/${id}/favorites`, {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
