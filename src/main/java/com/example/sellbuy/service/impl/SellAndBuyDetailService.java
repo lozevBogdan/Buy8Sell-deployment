@@ -9,6 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.stream.Collectors;
 //@Service - this is in case we dont inject Bean in SecurityConfig
@@ -21,6 +22,7 @@ public class SellAndBuyDetailService implements UserDetailsService {
     }
 
     //Here we define to SpringSecurity, how to get the user!
+
     @Override
     public UserDetails loadUserByUsername(String username)
             throws UsernameNotFoundException {

@@ -11,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.transaction.annotation.Transactional;
 
 @Configuration
 public class SecurityConfiguration {
@@ -26,6 +27,7 @@ public class SecurityConfiguration {
         return new Pbkdf2PasswordEncoder();
     }
 
+    @Transactional
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
@@ -71,6 +73,7 @@ public class SecurityConfiguration {
     }
 
     // We can not do that with annotation on SellAndBuyDetailService with @Service
+    @Transactional
     @Bean
     public UserDetailsService userDetailsService(UserRepository userRepository) {
         return new SellAndBuyDetailService(userRepository);
