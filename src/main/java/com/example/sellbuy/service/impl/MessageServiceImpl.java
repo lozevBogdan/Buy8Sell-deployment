@@ -67,7 +67,18 @@ public class MessageServiceImpl  implements MessageService {
     @Transactional
     @Override
     public void deleteByProductId(Long id) {
+        getAllMessageByProductIdAndSetInEveryMessageProductToNullAndSaveInDB(id);
         this.messageRepository.deleteByProductId(id);
+    }
+
+    private void getAllMessageByProductIdAndSetInEveryMessageProductToNullAndSaveInDB(Long productId){
+        Set<MessageEntity> allByProductId = this.messageRepository.findAllByProductId(productId);
+
+        for (MessageEntity message : allByProductId) {
+            message.setProduct(null);
+        }
+
+         this.messageRepository.saveAll(allByProductId);
     }
 
     @Override
