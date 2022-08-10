@@ -14,7 +14,7 @@ public interface MessageService {
 
     Set<MessageEntity> getMessageBySenderAndReceiver(Long senderId, Long receiverId);
 
-    void deleteByProductId(Long id);
+    void deleteMessageByProductId(Long id);
 
     Set<MessageChatViewModel> findChatsMessagesByProductIdSenderIdReceiverId(Long productId, Long senderId, Long currentUsedId);
 }

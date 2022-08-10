@@ -482,9 +482,9 @@ public class ProductServiceImpl implements ProductService {
 
         Long pictureId = productForDeleted.getPicture().getId();
 
-        this.commentsService.deleteByProductId(id);
-        this.userService.deleteByProductIdFromUserProduct(productForDeleted);
-        this.messageService.deleteByProductId(id);
+        this.commentsService.deleteCommentByProductId(id);
+        this.userService.deleteUserByProductIdFromUserProduct(productForDeleted);
+        this.messageService.deleteMessageByProductId(id);
         this.productRepository.deleteById(id);
         this.pictureService.deletePictureById(pictureId);
 

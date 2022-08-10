@@ -28,7 +28,7 @@ public class CommentServiceImpl implements CommentsService {
 
     @Transactional
     @Override
-    public void deleteByProductId(Long id) {
+    public void deleteCommentByProductId(Long id) {
         this.commentRepository.deleteByProductEntityId(id);
     }
 

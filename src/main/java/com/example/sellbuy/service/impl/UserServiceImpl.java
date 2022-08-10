@@ -152,7 +152,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteByProductIdFromUserProduct(ProductEntity productForDelete) {
+    public void deleteUserByProductIdFromUserProduct(ProductEntity productForDelete) {
         UserEntity currentLoggedInUserEntity = this.getCurrentLoggedInUserEntityById(productForDelete.getSeller().getId());
         Set<ProductEntity> products = currentLoggedInUserEntity.getProducts();
         for (ProductEntity product : products) {
