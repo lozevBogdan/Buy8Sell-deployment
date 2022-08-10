@@ -472,7 +472,13 @@ public class ProductServiceImpl implements ProductService {
         ProductEntity productForDeleted =
                 this.productRepository.
                         findById(id).get();
+
         productForDeleted.setMessages(new HashSet<>());
+        productRepository.save(productForDeleted);
+
+        productForDeleted =
+                this.productRepository.
+                        findById(id).get();
 
         Long pictureId = productForDeleted.getPicture().getId();
 
