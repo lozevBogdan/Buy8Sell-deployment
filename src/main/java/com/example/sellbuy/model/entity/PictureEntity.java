@@ -1,5 +1,7 @@
 package com.example.sellbuy.model.entity;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,7 +9,7 @@ import javax.persistence.*;
 public class PictureEntity extends BaseEntity {
 
 
-
+    @Lob
     @Column
     private String url;
 
@@ -16,7 +18,7 @@ public class PictureEntity extends BaseEntity {
 
     public PictureEntity() {
     }
-
+    @Transactional
     public String getUrl() {
         return url;
     }
