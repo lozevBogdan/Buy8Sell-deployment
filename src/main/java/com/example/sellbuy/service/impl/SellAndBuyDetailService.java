@@ -22,7 +22,7 @@ public class SellAndBuyDetailService implements UserDetailsService {
     }
 
     //Here we define to SpringSecurity, how to get the user!
-
+    @Transactional
     @Override
     public UserDetails loadUserByUsername(String username)
             throws UsernameNotFoundException {
