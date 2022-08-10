@@ -18,7 +18,6 @@ public class TestUserDetailsService implements UserDetailsService {
                 username,
                 "Test",
                 "user",
-                Collections.emptyList(),
-                new HashSet<>());
+                Collections.emptyList());
     }
 }
