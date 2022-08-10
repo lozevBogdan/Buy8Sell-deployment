@@ -3,7 +3,7 @@ package com.example.sellbuy.model.entity;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
-
+@Transactional
 @Entity
 @Table(name = "pictures")
 public class PictureEntity extends BaseEntity {
@@ -22,7 +22,7 @@ public class PictureEntity extends BaseEntity {
     public String getUrl() {
         return url;
     }
-    @Transactional
+
     public PictureEntity setUrl(String url) {
         this.url = url;
         return this;
