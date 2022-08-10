@@ -123,11 +123,11 @@ public class ProductEntity extends BaseEntity {
         this.seller = seller;
         return this;
     }
-    @Transactional
+
     public PictureEntity getPicture() {
         return picture;
     }
-
+    @Transactional
     public ProductEntity setPicture(PictureEntity picture) {
         this.picture = picture;
         return this;
