@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class PictureEntity extends BaseEntity {
 
 
-    @Lob
+
     @Column
     private String url;
 
