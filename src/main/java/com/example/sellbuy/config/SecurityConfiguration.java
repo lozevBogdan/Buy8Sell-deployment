@@ -27,7 +27,7 @@ public class SecurityConfiguration {
         return new Pbkdf2PasswordEncoder();
     }
 
-    @Transactional
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
@@ -73,7 +73,7 @@ public class SecurityConfiguration {
     }
 
     // We can not do that with annotation on SellAndBuyDetailService with @Service
-    @Transactional
+
     @Bean
     public UserDetailsService userDetailsService(UserRepository userRepository) {
         return new SellAndBuyDetailService(userRepository);
