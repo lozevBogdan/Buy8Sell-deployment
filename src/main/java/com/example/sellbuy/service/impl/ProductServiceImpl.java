@@ -465,7 +465,7 @@ public class ProductServiceImpl implements ProductService {
         return false;
     }
 
-   // @Transactional
+    @Transactional
     @Override
     public void deleteProductById(Long id) {
 
