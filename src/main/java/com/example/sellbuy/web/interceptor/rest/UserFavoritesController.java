@@ -1,4 +1,4 @@
-package com.example.sellbuy.web.rest;
+package com.example.sellbuy.web.interceptor.rest;
 
 import com.example.sellbuy.model.entity.ProductEntity;
 import com.example.sellbuy.model.view.productViews.ProductFavoriteViewModel;
