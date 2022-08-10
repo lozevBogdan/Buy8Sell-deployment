@@ -1,5 +1,7 @@
 package com.example.sellbuy.model.entity;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -103,7 +105,7 @@ public class UserEntity extends BaseEntity{
         this.roles = roles;
         return this;
     }
-
+    @Transactional
     public Set<ProductEntity> getProducts() {
         return products;
     }
