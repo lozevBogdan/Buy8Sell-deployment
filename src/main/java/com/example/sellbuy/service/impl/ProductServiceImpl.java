@@ -19,6 +19,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.annotation.Order;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
@@ -482,12 +483,27 @@ public class ProductServiceImpl implements ProductService {
 
         Long pictureId = productForDeleted.getPicture().getId();
 
-        this.commentsService.deleteCommentByProductId(id);
-        this.userService.deleteUserByProductIdFromUserProduct(productForDeleted);
-        this.messageService.deleteMessageByProductId(id);
-        this.productRepository.deleteById(id);
-        this.pictureService.deletePictureById(pictureId);
+        this.deleteCommentByProductId(id);
+        this.deleteUserByProductIdFromUserProduct(productForDeleted);
+        this.deleteMessageByProductId(id);
+        this.deletePictureById(pictureId);
+    }
 
+    @Async
+    void deleteCommentByProductId(Long productId){
+        this.commentsService.deleteCommentByProductId(productId);
+    }
+    @Async
+    void deleteUserByProductIdFromUserProduct(ProductEntity productForDeleted){
+        this.userService.deleteUserByProductIdFromUserProduct(productForDeleted);
+    }
+    @Async
+    void deleteMessageByProductId(Long productId){
+        this.productRepository.deleteById(productId);
+    }
+    @Async
+    void deletePictureById(Long pictureId){
+        this.pictureService.deletePictureById(pictureId);
     }
 
     @Override
