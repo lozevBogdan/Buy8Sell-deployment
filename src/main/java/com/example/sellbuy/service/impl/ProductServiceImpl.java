@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
-
+@Transactional
 @Service
 public class ProductServiceImpl implements ProductService {
 
@@ -482,7 +482,7 @@ public class ProductServiceImpl implements ProductService {
         this.pictureService.deletePictureById(pictureId);
 
     }
-    @Transactional
+
     @Override
     public Set<ProductEntity> findProductsByUserId(Long id) {
         return this.productRepository.findProductsBySellerId(id);
