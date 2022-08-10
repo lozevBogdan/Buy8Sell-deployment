@@ -68,7 +68,7 @@ public class MessageServiceImpl  implements MessageService {
     @Override
     public void deleteByProductId(Long id) {
         getAllMessageByProductIdAndSetInEveryMessageProductToNullAndSaveInDB(id);
-        this.messageRepository.deleteByProductId(id);
+        this.messageRepository.deleteByProductId(null);
     }
 
     private void getAllMessageByProductIdAndSetInEveryMessageProductToNullAndSaveInDB(Long productId){
