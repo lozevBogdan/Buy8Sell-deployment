@@ -490,18 +490,22 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Async
+    @Transactional
     void deleteCommentByProductId(Long productId){
         this.commentsService.deleteCommentByProductId(productId);
     }
     @Async
+    @Transactional
     void deleteUserByProductIdFromUserProduct(ProductEntity productForDeleted){
         this.userService.deleteUserByProductIdFromUserProduct(productForDeleted);
     }
     @Async
+    @Transactional
     void deleteMessageByProductId(Long productId){
         this.productRepository.deleteById(productId);
     }
     @Async
+    @Transactional
     void deletePictureById(Long pictureId){
         this.pictureService.deletePictureById(pictureId);
     }
