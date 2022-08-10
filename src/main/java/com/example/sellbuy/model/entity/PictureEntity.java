@@ -3,7 +3,7 @@ package com.example.sellbuy.model.entity;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
-@Transactional
+
 @Entity
 @Table(name = "pictures")
 public class PictureEntity extends BaseEntity {

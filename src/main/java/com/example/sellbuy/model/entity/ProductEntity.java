@@ -1,6 +1,7 @@
 package com.example.sellbuy.model.entity;
 
 import com.example.sellbuy.model.entity.enums.ConditionEnum;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -122,7 +123,7 @@ public class ProductEntity extends BaseEntity {
         this.seller = seller;
         return this;
     }
-
+    @Transactional
     public PictureEntity getPicture() {
         return picture;
     }
