@@ -105,7 +105,7 @@ public class UserEntity extends BaseEntity{
         this.roles = roles;
         return this;
     }
-    @Transactional
+
     public Set<ProductEntity> getProducts() {
         return products;
     }

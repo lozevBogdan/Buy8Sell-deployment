@@ -42,8 +42,7 @@ public class SellAndBuyDetailService implements UserDetailsService {
                         getRoles().
                         stream().
                         map(this::mapToGrantedAuthority).
-                        collect(Collectors.toList()),
-                userEntity.getFavoriteProducts());
+                        collect(Collectors.toList()));
     }
 
     private GrantedAuthority mapToGrantedAuthority(UserRoleEntity userRole) {
