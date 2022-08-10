@@ -18,11 +18,11 @@ public class PictureEntity extends BaseEntity {
 
     public PictureEntity() {
     }
-    @Transactional
+
     public String getUrl() {
         return url;
     }
-
+    @Transactional
     public PictureEntity setUrl(String url) {
         this.url = url;
         return this;
