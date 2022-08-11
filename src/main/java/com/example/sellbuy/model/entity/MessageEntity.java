@@ -1,5 +1,8 @@
 package com.example.sellbuy.model.entity;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,7 +20,8 @@ public class MessageEntity extends BaseEntity{
     @ManyToOne
     private UserEntity receiver;
 
-    @ManyToOne
+
+    @ManyToOne(cascade = CascadeType.ALL)
     private ProductEntity product;
 
     public MessageEntity() {

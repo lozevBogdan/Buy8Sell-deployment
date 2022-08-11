@@ -1,6 +1,8 @@
 package com.example.sellbuy.model.entity;
 
 import com.example.sellbuy.model.entity.enums.ConditionEnum;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
@@ -41,8 +43,9 @@ public class ProductEntity extends BaseEntity {
             inverseJoinColumns = { @JoinColumn(name = "picture_id",referencedColumnName = "id") })
     private PictureEntity picture;
 
-    @OneToMany(mappedBy = "productEntity",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "productEntity",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private Set<CommentEntity> comments= new HashSet<>();
+
 
     @OneToMany(mappedBy = "product",fetch = FetchType.EAGER)
     private Set<MessageEntity> messages;

@@ -41,6 +41,7 @@ public class MessageServiceImpl  implements MessageService {
         return this.messageRepository.save(message);
     }
 
+    @Transactional
     @Override
     public MessageEntity createAndSave(MessageBindingModel messageBindingModel, Long productId, Long receiverId, Long currentUserId) {
 
@@ -74,14 +75,14 @@ public class MessageServiceImpl  implements MessageService {
         }
     }
 
-    private Set<MessageEntity> getAllMessageByProductIdAndSetInEveryMessageProductToNullAndSaveInDB(Long productId){
+
+    public Set<MessageEntity> getAllMessageByProductIdAndSetInEveryMessageProductToNullAndSaveInDB(Long productId){
         Set<MessageEntity> allByProductId = this.messageRepository.findAllByProductId(productId);
 
         for (MessageEntity message : allByProductId) {
-            message.setProduct(null);
+            message.getProduct().setId(-1L);
+            messageRepository.save(message);
         }
-        this.messageRepository.saveAll(allByProductId);
-
         return allByProductId;
     }
 

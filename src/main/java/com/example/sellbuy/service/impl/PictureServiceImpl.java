@@ -39,7 +39,10 @@ public class PictureServiceImpl implements PictureService {
 
     @Override
     public void deletePictureById(Long id) {
-        this.pictureRepository.deleteById(id);
+        if (this.pictureRepository.findById(id).isPresent()){
+            this.pictureRepository.deleteById(id);
+        }
+
     }
 
     @Override

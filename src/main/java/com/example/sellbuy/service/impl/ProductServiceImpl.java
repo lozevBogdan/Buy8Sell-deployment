@@ -474,6 +474,7 @@ public class ProductServiceImpl implements ProductService {
                 this.productRepository.
                         findById(id).get();
 
+
         productForDeleted.setMessages(new HashSet<>());
         productRepository.save(productForDeleted);
 
@@ -485,35 +486,11 @@ public class ProductServiceImpl implements ProductService {
 
         this.commentsService.deleteCommentByProductId(id);
         this.userService.deleteUserByProductIdFromUserProduct(productForDeleted);
-        this.productRepository.deleteById(id);
+        this.messageService.deleteMessageByProductId(id);
+        System.out.println();
+        this.productRepository.deleteById(-1L);
         this.pictureService.deletePictureById(pictureId);
 
-
-//        this.deleteCommentByProductId(id);
-//        this.deleteUserByProductIdFromUserProduct(productForDeleted);
-//        this.deleteMessageByProductId(id);
-//        this.deletePictureById(pictureId);
-    }
-
-    @Async
-    @Transactional
-    void deleteCommentByProductId(Long productId){
-        this.commentsService.deleteCommentByProductId(productId);
-    }
-    @Async
-    @Transactional
-    void deleteUserByProductIdFromUserProduct(ProductEntity productForDeleted){
-        this.userService.deleteUserByProductIdFromUserProduct(productForDeleted);
-    }
-    @Async
-    @Transactional
-    void deleteMessageByProductId(Long productId){
-        this.productRepository.deleteById(productId);
-    }
-    @Async
-    @Transactional
-    void deletePictureById(Long pictureId){
-        this.pictureService.deletePictureById(pictureId);
     }
 
     @Override
